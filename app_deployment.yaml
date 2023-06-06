@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+spec:
+  selector:
+    matchLabels:
+      app: app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+      - name: app
+        image: hynky/o2-app:v1
+
+        env:
+        - name: API_DNS
+          value: "api-service:5000"
+        ports:
+        - containerPort: 5000
+        imagePullPolicy: Always
+
+      nodeSelector:
+        tier: frontend
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-service 
+
+spec:
+  type: NodePort
+  selector:
+    app: app
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+      nodePort: 30080
