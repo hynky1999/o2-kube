@@ -3,7 +3,7 @@
 2. Run `kind create cluster --config cluster_definition.yaml` to create the cluster.
 3. Run `kubectl apply -f app_deployment.yaml` to deploy the app.
 4. Run `kubectl apply -f api_deployment.yaml` to deploy the api.
-5. Go to localhost:80 to see the app.
+5. Go to localhost:80/showtime to see the time quried from the api.
 
 
 # Cluster
