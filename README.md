@@ -57,7 +57,7 @@ Frankly I have never used Red Hat OpenShift, so I will just list the differences
 
 We could also change the deployment definition file and apply it using `kubectl apply -f <deployment-definition-file>`. However, that is a bit harder to automate.
 I hope I understood the problem correctly, which means that when we start to deploy we already have a deployment definition file and running pods.
-If not the process is very similar, build images -> define deployment.yaml -> apply deployment.yaml.
+If not, the process is very similar, build images -> define deployment.yaml -> apply deployment.yaml.
 
 
 ## Rolling update process in Kubernetes:
